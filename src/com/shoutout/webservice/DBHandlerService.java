@@ -17,15 +17,15 @@ import org.json.JSONObject;
 @Path("/audioclips")
 public class DBHandlerService {
 	Connection conn = null;
-	Statement statement = null;
-	PreparedStatement preparedStatement = null;
-	ResultSet resultSet = null;
-	String clipTitle=null;
-	//create Json Object
-	JSONObject json = new JSONObject();
+	
 	@GET
 	@Path("/clip-id={param}")
 	public Response getAudioClips(@PathParam("param") String msg){
+		Statement statement = null;
+		ResultSet resultSet = null;
+		String clipTitle=null;
+		//create Json Object
+		JSONObject json = new JSONObject();
 		String returnString=null;
 		try{
 			// This will load the MySQL driver, each DB has its own driver
