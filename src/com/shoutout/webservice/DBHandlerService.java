@@ -2,6 +2,7 @@ package com.shoutout.webservice;
 
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -28,10 +29,13 @@ public class DBHandlerService {
 		
 		Statement statement = null;
 		ResultSet resultSet = null;
-		int clipId=0;
+		String clipId="";
 		String clipTitle=null;
 		String clipTags=null;
 		String clipCategory=null;
+		Date uploadTIme=null;
+		String clipImageUrl=null;
+		String clipAudioUrl=null;
 		try{
 			// This will load the MySQL driver, each DB has its own driver
 			Class.forName("com.mysql.jdbc.Driver");
@@ -44,15 +48,22 @@ public class DBHandlerService {
 			
 			while(resultSet.next()){
 				singleClip = new JSONObject();
-				clipId = resultSet.getInt("clipId");
+				clipId = clipId+resultSet.getInt("clipId");
 				clipTitle = resultSet.getString("clipTitle");
 				clipTags = resultSet.getString("clipTags");
 				clipCategory = resultSet.getString("clipCategory");
+				clipImageUrl = resultSet.getString("clipImageUrl");
+				clipAudioUrl = resultSet.getString("clipAudioUrl");
+				uploadTIme = resultSet.getDate("uploadTIme");
 				singleClip.put("ClipId",clipId);
 				singleClip.put("ClipTitle",clipTitle);
 				singleClip.put("ClipTags",clipTags);
 				singleClip.put("ClipCategory",clipCategory);
+				singleClip.put("ClipImageURL", clipImageUrl);
+				singleClip.put("ClipAudioURL", clipAudioUrl);
+				singleClip.put("ClipUploadTime", uploadTIme);
 				allClips.put(singleClip);
+				clipId="";
 			}
 			finalJSON.put("AllClips",allClips);
 		}catch (Exception e) {
