@@ -1,0 +1,6 @@
+language: java
+script: mvn clean package
+deploy:
+  provider: heroku
+  api_key: "7820efed-f535-45d3-9832-2e78526c9c6d"
+  app: "shoutout-ws"
