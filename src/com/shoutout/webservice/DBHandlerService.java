@@ -41,7 +41,7 @@ public class DBHandlerService {
 			Class.forName("com.mysql.jdbc.Driver");
 			// Setup the connection with the DB
 			conn = DriverManager.getConnection("jdbc:mysql://www.it354.com/it354_keschae?" +
-					"user=it354_keschae&password=steinway");
+					"user=username&password=password");
 			statement = conn.createStatement();
 			// Result set get the result of the SQL query
 			resultSet = statement.executeQuery("select * from audio_clips");
