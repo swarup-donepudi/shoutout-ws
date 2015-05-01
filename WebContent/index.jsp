@@ -7,6 +7,6 @@
 <title>Simple Rest API</title>
 </head>
 <body>
-<h1>Built using travis ci</h1>
+<h1>Built using travis ci demo</h1>
 </body>
 </html>
