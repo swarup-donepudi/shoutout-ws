@@ -63,6 +63,19 @@
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
+      <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire.version}</version>
+                    <configuration>
+                        <skipTests>false</skipTests> <!-- desperate trial -->
+                        <properties>
+                            <property>
+                                <name>listener</name>
+                                <value>${testng.listeners}</value>
+                            </property>
+                        </properties>
+                    </configuration>
+                </plugin>
     </plugins>
   </build>
 </project>
