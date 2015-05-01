@@ -71,7 +71,7 @@
                         <properties>
                             <property>
                                 <name>listener</name>
-                                <value>${testng.listeners}</value>
+                                <value>2.18.1</value>
                             </property>
                         </properties>
                     </configuration>
